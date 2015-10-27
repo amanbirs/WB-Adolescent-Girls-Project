@@ -64,15 +64,15 @@ forval i = 1/9{
 
 tab adole_c9opt1, miss
 tab adole_c9opt2, miss 
-tab adole_c9opt3 , miss
-tab adole_c9opt4 , miss
-tab adole_c9opt5 , miss
-tab adole_c9opt6 , miss
-tab adole_c9opt7 , miss
-tab adole_c9opt8 , miss
-tab adole_c9opt9 , miss
-tab adole_c9opt10 , miss
-tab adole_c9opt11 , miss
+tab adole_c9opt3, miss
+tab adole_c9opt4, miss
+tab adole_c9opt5, miss
+tab adole_c9opt6, miss
+tab adole_c9opt7, miss
+tab adole_c9opt8, miss
+tab adole_c9opt9, miss
+tab adole_c9opt10, miss
+tab adole_c9opt11, miss
 tab adole_c9opt12, miss
 
 
@@ -92,7 +92,16 @@ tab adole_i30_school, miss
 tab adole_i30_publicplc, miss
 
 
-* AD G9    % thought of hurting self/better off dead several days or more over last 2 wks
+* Ad G9    % thought of hurting self/better off dead several days or more over last 2 wks
 tab adole_g9, miss
 
 
+* Section K    
+forval i = 1/6 {
+	reshape_multiple_choices adole_row`i'k2 educational_institution(91)
+}
+
+* % not attending an educational institution in the last week (age b/w 11 and 17)
+tab educational_institution if respondent_age >=11 & respondent_age <=17
+
+tab educational_institution if respondent_age >=11 & respondent_age <=15
